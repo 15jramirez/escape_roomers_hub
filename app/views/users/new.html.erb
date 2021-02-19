@@ -1,1 +1,24 @@
-hello
+<h1> Sign Up! </h1>
+<p> Already have an account? </p>
+
+<%= form_for @user do |f| %> 
+    <% if @user.errors.any? %>
+    <div id="error_explanation">
+    <h2>
+        <%= pluralize(@user.errors.count,"error") %>
+        prohibited this song from being saved
+    </h2>
+    <ul>
+        <% @user.errors.full_messages.each do |message| %>
+            <li><%= message %> </li>
+        <% end %>   
+    </ul>
+    </div>
+<% end %>
+
+    <%= f.label "Username:" %>
+    <%= f.text_field :username %><br><br>
+    <%= f.label "Password:" %>
+    <%= f.password_field :password %><br><br>
+    <%= f.submit "Create Account" %>
+<% end %>
