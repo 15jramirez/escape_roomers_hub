@@ -8,6 +8,7 @@ class UsersController < ApplicationController
         if @user.valid?
             @user.save
             session[:user_id] = @user.id 
+            binding.pry
             # redirect_to new_profile(@user.profile) notice: "Thank you for signing up!"
         else 
             render :new
