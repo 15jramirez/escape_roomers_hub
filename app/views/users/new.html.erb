@@ -1,7 +1,7 @@
 <h1> Sign Up! </h1>
 <p> Already have an account? </p>
 
-<%= form_for @user do |f| %> 
+<%= form_for @user, url:signup_path do |f| %> 
     <% if @user.errors.any? %>
     <div id="error_explanation">
     <h2>
