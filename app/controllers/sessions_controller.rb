@@ -15,7 +15,7 @@ class SessionsController < ApplicationController
                 session[:user_id] = user.id 
                 redirect_to ()
             else
-                flash.now[:alert] = "Account was not found"
+                flash.now[:alert] = "Account not found"
                 render :new 
             end
         end
