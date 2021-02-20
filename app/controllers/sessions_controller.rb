@@ -8,9 +8,9 @@ class SessionsController < ApplicationController
 
     def create 
         if auth_hash = request.env["omniauth.auth"]
-                #user logged in via 3rd  party.
+              raise auth_hash.inspect
         else
-         user = User.find_by(params[:username])
+         user = User.find_by(params[:email])
             if user && user.authenticate(params[:password])
                 session[:user_id] = user.id 
                 redirect_to ()
@@ -22,7 +22,6 @@ class SessionsController < ApplicationController
     end
 
     def destory 
-        reset_session
         redirect_to login_path
     end
 end
