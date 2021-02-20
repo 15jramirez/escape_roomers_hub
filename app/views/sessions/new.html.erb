@@ -1,5 +1,5 @@
 <h1> Login </h1>
-<%= link_to "Login via Tumblr", "/auth/tumblr" %>
+<%= link_to "Login with Tumblr", '/auth/tumblr', method: :post%>
 <%= form_for :user do |f|%>
         <%= f.label "Email:" %>
         <%= f.text_field :email %><br><br>
