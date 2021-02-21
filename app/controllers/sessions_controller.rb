@@ -29,7 +29,7 @@ class SessionsController < ApplicationController
     end
 
     def destory 
-        sessions.delete(:user_id)
+        reset_session
         redirect_to login_path
     end
 

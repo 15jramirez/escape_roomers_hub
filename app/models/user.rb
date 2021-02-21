@@ -8,5 +8,6 @@ class User < ApplicationRecord
         user = User.find_or_create_by(uid: auth['uid'], provider: auth['provider'] ) do |u|
             u.username = auth['info']['nickname']
             u.password = SecureRandom.hex(12)
+        end
     end
 end
