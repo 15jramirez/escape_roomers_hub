@@ -1,0 +1,2 @@
+class EscapeRoomsController < ApplicationController
+end
