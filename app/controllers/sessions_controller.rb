@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
         user = User.create_from_omniauth(auth)
         if user.save 
             session[:user_id] = user.id
-            redirect_to 
+            redirect_to profile_path(current_user.profile)
         else
             flash.now[:alert] = "Account not found"
             redirect_to login_path
@@ -18,19 +18,19 @@ class SessionsController < ApplicationController
     end
 
     def create 
-         user = User.find_by(params[:username])
+      user = User.find_by(username: params[:username])
             if user && user.authenticate(params[:password])
                 session[:user_id] = user.id 
-                redirect_to ()
+                redirect_to profile_path(current_user.profile)
             else
-                flash.now[:alert] = "Account not found"
+                flash.now[:alert] = "Account not found. Try fix username or password"
                 render :new 
             end
     end
 
-    def destory 
+    def destroy
         reset_session
-        redirect_to login_path
+        redirect_to '/'
     end
 
     private 

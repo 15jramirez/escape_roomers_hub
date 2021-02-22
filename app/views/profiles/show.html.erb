@@ -1,0 +1,5 @@
+<h1> Profile Name: <%= @profile.user.username %> </h1>
+<p> <%= link_to "Edit Profile", edit_profile_path(@profile) %></p>
+<h2> About Me: <h2>
+<p> <%= @profile.bio %>
+<%= link_to "Log out", logout_path, method: "delete" %>

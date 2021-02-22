@@ -1,14 +1,27 @@
 Rails.application.routes.draw do
-  resources :reviews
-  resources :escape_rooms
-  resources :profiles
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  root to: 'sessions#welcome'
-  get '/auth/tumblr/callback', to: 'sessions#omniauth'
-  get '/signup', to: 'users#new', as: 'signup'
-  post '/signup', to: 'users#create'
-  get '/login', to: 'sessions#new', as: 'login'
-  post '/login', to: 'sessions#create'
+  root 'sessions#welcome'
 
-  
+  #log in process 
+  get '/auth/tumblr/callback', to: 'sessions#omniauth'
+  get '/login', to: 'sessions#new'
+  post '/login', to: 'sessions#create'
+  delete 'logout' => 'sessions#destroy'
+
+
+  get '/signup', to: 'users#new'
+  post '/signup', to: 'users#create'
+
+
+  resources :profiles
+  # resources :reviews do 
+  #   resources :escape_rooms
+  # end
+
+
+  resources :escape_rooms, only:[:index, :show]
+
+  # resources :users, only:[:show] do 
+  #   resources :reviews, only:[:show, :index]
+  # end
 end

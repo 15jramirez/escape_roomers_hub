@@ -1,0 +1,8 @@
+<h1> Edit Profile </h1>
+<%= render partial: '/shared/errors', locals: {object: @profile} %>
+
+<%= form_for @profile do |f| %>
+    <%= f.label "About Me:" %>
+    <%= f.text_area :bio %>
+    <% f.submit "Update Profile" %>
+<% end %>

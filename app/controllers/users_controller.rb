@@ -1,22 +1,22 @@
 class UsersController < ApplicationController
+    # before_action :check_logged
     def new 
-        @user = User.new 
+        @user = User.new
     end
 
     def create 
         @user = User.new(user_params)
         if @user.valid?
             @user.save
-            session[:user_id] = @user.id 
-            binding.pry
-            # redirect_to new_profile(@user.profile) notice: "Thank you for signing up!"
+            session[:user_id] = @user.id
+            flash[:notice] = "Thank you for signing up!"
+            redirect_to profile_path(@user.profile)
         else 
             render :new
         end
     end
-
     private 
         def user_params 
-            params.require(:user).permit(:username,:email, :password)
+            params.require(:user).permit(:username, :password)
         end
 end
