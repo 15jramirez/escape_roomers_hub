@@ -5,7 +5,8 @@ class EscapeRoomsController < ApplicationController
     end
 
     def create 
-        
+        @escaperoom = EscapeRoom.new()
+        if @escaperoom.valid?
     end 
 
     def index 
@@ -24,6 +25,7 @@ class EscapeRoomsController < ApplicationController
     end
 
     def show 
+        @escaperoom = EscapeRoom.find_by(params[:id])
         #in view tag link to user of creater of escape room -> able to see creater reviews made, and other escape rooms made?.
         # if have time add in the wish list => users able to add to that esacpe room to them
 

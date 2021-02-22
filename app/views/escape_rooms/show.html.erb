@@ -1,0 +1,24 @@
+<h2> Reviews </h2>
+
+<% @escaperoom.reviews.each do |review| %>
+    <% if review.user %> 
+    <% # nesting review and user so it'll be user/user id/review/reviw id%>
+      <li><%= review.user.username %> review: <%= link_to review.title user_review_path,(review.user) %></li>
+    <% end %>
+  <% end %>
+  <h2> Want to create a review? </h2>
+<%= form_for @escaperoom.reviews.build do |f| %>
+    <%= f.hidden_field :escaperoom_id, value: @escaperoom.id %>
+    <%= f.label "Title: " %>
+    <%= f.text_field :title %>
+    <%= f.label "content" %>
+    <%= f.text_area :content %>
+    <% # need to put in model logic if not logged in then show this. %>
+    <br>
+    <%= f.fields_for :profile, @escaperoom.profiles.build do |profile| %>
+    <%= user.label :username %>
+     <%= user.text_field :username %>
+     <% 
+    <% end %>
+    <%= f.submit %>
+  <% end %>

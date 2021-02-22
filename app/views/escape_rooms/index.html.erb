@@ -1,11 +1,2 @@
 <h1> Here are all of the Escape Rooms </h1>
-
-<h3>Filter posts:</h3>
-<%= form_tag("/escaperooms", method: "get") do %>
-</div>
-
-<% @escaperooms.each do |escaperoom| %>
-<div>
-  <h2><%= link_to escaperoom.title, escaperoom_path(escaperoom) %></h2>
-</div>
-<% end %>
+<h3> Filter Rooms </h3>
