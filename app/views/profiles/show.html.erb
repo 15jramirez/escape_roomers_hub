@@ -1,5 +1,9 @@
-<h1> Profile Name: <%= @profile.user.username %> </h1>
+<h1> Profile Name: <%= @profile.user.username %> </h1> <%= link_to "Log out", logout_path, method: "delete" %>
 <p> <%= link_to "Edit Profile", edit_profile_path(@profile) %></p>
 <h2> About Me: <h2>
 <p> <%= @profile.bio %>
-<%= link_to "Log out", logout_path, method: "delete" %>
+
+<h2> Rewiews created by <%=@profile.user.username %> </h2>
+    <% #scop method here" %>
+<h2> Escape Rooms created to help others discovery! </h2>
+<h2> Here's a wish list that wants to visit </h2>

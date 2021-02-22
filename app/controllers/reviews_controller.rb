@@ -1,10 +1,6 @@
 class ReviewsController < ApplicationController
-    def new 
-        #creats a blank review
-    end
-
     def create 
-        #process
+        
     end
 
     def edit 
@@ -15,4 +11,9 @@ class ReviewsController < ApplicationController
 
     def delete 
     end
+
+    private 
+        def review_params
+            params.require(:review)
+        end
 end

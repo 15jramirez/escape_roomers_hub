@@ -5,12 +5,20 @@ class ProfilesController < ApplicationController
     def show 
     end
 
-    def edit 
-        #has to match current user with profile id
+    def edit
+         if valid? == false
+            redirect_to profile_path
+         else
+            render :edit
+         end
     end
 
     def update
-        # @profile.update(profile_params)
+        if current_user.profile.update(profile_params)
+            redirect_to profile_path(@profile)
+        else
+            render :edit
+        end
     end
 
     private
@@ -18,8 +26,12 @@ class ProfilesController < ApplicationController
             @profile = Profile.find(params[:id])
         end
 
-        # def profile_params
-        #     binding.pry
-        #     params.require(:profile).permit(:bio, :user_id)
-        # end
-end
+        def valid?
+            @profile.user.id == current_user.id
+        end
+
+        def profile_params
+            binding.pry
+            params.require(:profile).permit(:bio, :user_id)
+        end
+    end

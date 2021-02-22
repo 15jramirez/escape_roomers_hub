@@ -5,14 +5,22 @@ class EscapeRoomsController < ApplicationController
     end
 
     def create 
-        #@ 
+        
     end 
 
     def index 
+        if !params[:location].blank?
+            @escaperooms = EscapeRoom.where(location: params[:location])
+          elsif !params[:diffculty].blank?
+            @escaperooms = EscapeRoom.where(diffculty: params[:diffculty])
+          else
+            # if no filters are applied, show all rooms
+            @escaperooms = EscapeRoom.all 
+          end
+        end
         #able to see all of the escape rooms createed. this will be on the homepage.
         #create scope to view them all order of diffculty?
 
-        #if have time add in way to filter results 
     end
 
     def show 
@@ -33,4 +41,10 @@ class EscapeRoomsController < ApplicationController
     def delete 
         #only delete if user created
     end
+
+    private 
+        def escaperoom_params
+            params.require(:escaperoom).permit(:tilte, :location[], :diffculty[], :description,:hours)
+        end
+
 end
