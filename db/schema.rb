@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_22_234928) do
+ActiveRecord::Schema.define(version: 2021_02_23_222933) do
 
   create_table "escape_rooms", force: :cascade do |t|
     t.string "title"
@@ -31,12 +31,12 @@ ActiveRecord::Schema.define(version: 2021_02_22_234928) do
   end
 
   create_table "reviews", force: :cascade do |t|
-    t.string "title"
     t.text "content"
     t.integer "profile_id"
     t.integer "escape_room_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "rating"
   end
 
   create_table "users", force: :cascade do |t|

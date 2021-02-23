@@ -20,7 +20,7 @@ class ReviewsController < ApplicationController
 
     private 
         def review_params
-            params.require(:review).permit(:content, :title, :escaperoom_id, escape_rooms_attributes:[
+            params.require(:review).permit(:content, :rating, :escaperoom_id, escape_rooms_attributes:[
                 :title,
                 :location,
                 :difficulty,
