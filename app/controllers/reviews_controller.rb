@@ -3,6 +3,7 @@ class ReviewsController < ApplicationController
         @review = Review.new
     end
     def create 
+        binding.pry
         @review = Review.create(review_params)
     end
 
@@ -12,7 +13,9 @@ class ReviewsController < ApplicationController
     def update 
     end
 
-    def delete 
+    def destory
+        flash[:notice] = "Review deleted."
+        redirect_to profile_path(current_user.profile)
     end
 
     private 

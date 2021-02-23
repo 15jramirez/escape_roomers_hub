@@ -5,7 +5,20 @@
     <%= f.label "Title:" %>
     <%= f.text_field :title %><br><br>
     <%= f.label "Escape Room:" %>
-    <%= f.collection_select :escaperoom_id, EscapeRoom.all, :id, :title %><br><br>
+    <%= f.collection_select :escape_room_id, EscapeRoom.all, :id, :title %><br><br>
+    <p> Room not there? Create an Escape Room </p>
+        <%= f.fields_for :escape_room, @review.build_escape_room do |room_fields| %>
+        <%= room_fields.label "Title" %>
+        <%= room_fields.text_field :title %>
+        <%= room_fields.label "Difficulty" %>
+        <%= room_fields.text_field :difficulty%>
+        <%= room_fields.label "Location" %>
+        <%= room_fields.text_field :location %>
+        <%= room_fields.label "Description" %>
+        <%= room_fields.text_field :description %>
+        <%= room_fields.label "Hours" %>
+        <%= room_fields.text_field :hours %><br><br>
+    <% end %>
     <%= f.label "Content:" %>
     <%= f.text_area :content, placeholder:"some review about escape room" %><br><br>
     <%= f.submit %>

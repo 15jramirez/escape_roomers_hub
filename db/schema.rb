@@ -37,8 +37,6 @@ ActiveRecord::Schema.define(version: 2021_02_22_234928) do
     t.integer "escape_room_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["escaperoom_id"], name: "index_reviews_on_escaperoom_id"
-    t.index ["profile_id"], name: "index_reviews_on_profile_id"
   end
 
   create_table "users", force: :cascade do |t|
