@@ -17,8 +17,7 @@ Rails.application.routes.draw do
   # resources :reviews do 
   #   resources :escape_rooms
   # end
-
-
+  resources :reviews
   resources :escape_rooms, only:[:index, :show]
 
   # resources :users, only:[:show] do 

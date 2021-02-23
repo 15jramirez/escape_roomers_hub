@@ -1,4 +1,7 @@
 class ReviewsController < ApplicationController
+    def new 
+        @review = Review.new
+    end
     def create 
         @review = Review.create(review_params)
     end
@@ -14,6 +17,12 @@ class ReviewsController < ApplicationController
 
     private 
         def review_params
-            params.require(:review).permit(:content, :title, :user_id, :escaperoom_id)
+            params.require(:review).permit(:content, :title, :escaperoom_id, escape_rooms_attributes:[
+                :title,
+                :location,
+                :difficulty,
+                :description,
+                :hours
+            ])
         end
 end

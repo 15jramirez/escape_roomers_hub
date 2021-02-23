@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/jamiew/omniauth-tumblr.git
+  revision: df06d43eb547bda43c4fd19c068e959ba5922a94
+  specs:
+    omniauth-tumblr (1.2)
+      multi_json
+      omniauth-oauth (~> 1.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -123,9 +131,6 @@ GEM
     omniauth-rails_csrf_protection (1.0.0)
       actionpack (>= 4.2)
       omniauth (~> 2.0)
-    omniauth-tumblr (1.2)
-      multi_json
-      omniauth-oauth (~> 1.0)
     pry (0.14.0)
       coderay (~> 1.1)
       method_source (~> 1.0)
@@ -238,7 +243,7 @@ DEPENDENCIES
   listen (~> 3.3)
   omniauth
   omniauth-rails_csrf_protection
-  omniauth-tumblr
+  omniauth-tumblr!
   pry
   puma (~> 5.0)
   rack-mini-profiler (~> 2.0)

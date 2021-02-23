@@ -28,7 +28,7 @@ gem 'bcrypt', '~> 3.1.7'
 # Third party log in
 gem 'omniauth'
 gem 'omniauth-rails_csrf_protection'
-gem 'omniauth-tumblr'
+gem 'omniauth-tumblr', :git => 'https://github.com/jamiew/omniauth-tumblr.git'
 gem 'dotenv-rails', :groups => [:development, :test]
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false

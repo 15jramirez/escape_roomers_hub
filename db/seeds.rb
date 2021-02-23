@@ -5,3 +5,5 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+EscapeRoom.create(title: "Test", location:"online", difficulty:"easy", description:"it is for 5 players", hours: "9am to 10pm")

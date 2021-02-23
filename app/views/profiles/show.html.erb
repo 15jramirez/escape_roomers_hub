@@ -2,8 +2,16 @@
 <p> <%= link_to "Edit Profile", edit_profile_path(@profile) %></p>
 <h2> About Me: <h2>
 <p> <%= @profile.bio %>
-
 <h2> Rewiews created by <%=@profile.user.username %> </h2>
+    <% if @profile.reviews.empty? %>
+        <p>  Let's write a review <%= link_to "Review", new_review_path(@profile.reviews) %></p>
+        <% else %>
+        <ul>
+            <% @profile.reviews.each do |review| %>
+                <lil><%= review.title %></li>
+                <% end %>
+        </ul>
+        <% end %>
     <% #scop method here" %>
 <h2> Escape Rooms created to help others discovery! </h2>
 <h2> Here's a wish list that wants to visit </h2>

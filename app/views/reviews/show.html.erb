@@ -1,0 +1,4 @@
+<h1> Escape Room: <%= @review.escape_room.title %> </h1>
+<h1> <%= @review.title %> </h1>
+<h2> Created by: <%= link_to @review.profile.username, profile_path(@review.profile) %> </h2>
+<p> <%= @review.content %> </p>
