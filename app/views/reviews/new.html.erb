@@ -5,7 +5,7 @@
     <%= f.label "Title:" %>
     <%= f.text_field :title %><br><br>
     <%= f.label "Escape Room:" %>
-    <%= f.collection_select :escape_room_id, EscapeRoom.all, :id, :title %><br><br>
+    <%= f.collection_select :escape_room_id, EscapeRoom.all, :id, :title, prompt: true %><br><br>
     <p> Room not there? Create an Escape Room </p>
         <%= f.fields_for :escape_room, @review.build_escape_room do |room_fields| %>
         <%= room_fields.label "Title" %>
