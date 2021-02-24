@@ -15,7 +15,6 @@ class ReviewsController < ApplicationController
         @review = @profile.reviews.build(review_params)
         if @review.valid?
             @review.save
-            binding.pry
             redirect_to profile_review_path(@profile, @review)
         else 
             render :new

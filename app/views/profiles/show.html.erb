@@ -1,8 +1,8 @@
-<h1> Profile Name: <%= @profile.user.username %> </h1> <%= link_to "Log out", logout_path, method: "delete" %>
+<h1> Profile Name: <%= @profile.name %> </h1> <%= link_to "Log out", logout_path, method: "delete" %>
 <p> <%= link_to "Edit Profile", edit_profile_path(@profile) %></p>
 <h2> About Me: <h2>
 <p> <%= @profile.bio %>
-<h2> Rewiews created by <%=@profile.user.username %> </h2>
+<h2> Rewiews created by <%=@profile.name %> </h2>
     <% if @profile.reviews.empty? %>
         <p> No reviews made. Let's write a review <%= link_to "Review", new_profile_review_path(current_user.profile) %></p>
         <% else %>

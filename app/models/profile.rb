@@ -3,4 +3,7 @@ class Profile < ApplicationRecord
     has_many :reviews
     has_many :escape_rooms, through: :reviews
 
+    def name 
+        self.user.username
+    end
 end
