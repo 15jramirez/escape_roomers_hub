@@ -12,7 +12,6 @@ class ReviewsController < ApplicationController
     end
     def create 
         @profile = current_user.profile
-        binding.pry
         @review = @profile.reviews.build(review_params)
         if @review.valid?
             @review.save
@@ -42,7 +41,7 @@ class ReviewsController < ApplicationController
         end
 
         def review_params
-            params.require(:review).permit( :content, :rating, :escape_room_id, escape_rooms_attributes:[
+            params.require(:review).permit( :content, :rating, :profile_id, :escape_room_id, escape_room_attributes:[
                 :title,
                 :location,
                 :difficulty,
