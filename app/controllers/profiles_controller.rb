@@ -1,12 +1,12 @@
 class ProfilesController < ApplicationController
-    before_action :authentication_required
-    before_action :find_profile, only:[:show,:edit,:update]
+before_action :authentication_required
+before_action :find_profile, only:[:show,:edit,:update]
 
     def show 
     end
 
     def edit
-         if valid? == false
+         if !valid?
             redirect_to profile_path
          else
             render :edit
@@ -14,7 +14,8 @@ class ProfilesController < ApplicationController
     end
 
     def update
-        if current_user.profile.update(profile_params)
+        if valid?
+            current_user.profile.update(profile_params)
             redirect_to profile_path(@profile)
         else
             render :edit
@@ -31,7 +32,6 @@ class ProfilesController < ApplicationController
         end
 
         def profile_params
-            binding.pry
             params.require(:profile).permit(:bio, :user_id)
         end
     end

@@ -13,6 +13,6 @@ class User < ApplicationRecord
     end
 
     def build_profile
-        Profile.create(user: self, bio: "Welcome! Edit  your profile bio to let others know more about you" )
+        Profile.create(user: self, bio: "Welcome! Edit  your profile bio to let others know more about you")
     end
 end

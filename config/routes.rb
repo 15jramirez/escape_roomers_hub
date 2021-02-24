@@ -19,11 +19,9 @@ Rails.application.routes.draw do
   end
 
   resources :escape_rooms do 
-    resources :reviews 
+    resources :reviews
     # if review is nested in escpe rooms, don't let user create a new check box or select. 
     #localhost/escape_rooms/review/new
   end
-  resources :reviews
-  resources :escape_rooms
 
 end
