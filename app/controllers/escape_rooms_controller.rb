@@ -4,9 +4,7 @@ class EscapeRoomsController < ApplicationController
     end
     
     def show 
-        @escaperoom = EscapeRoom.find_by(params[:id])
+        @escaperoom = EscapeRoom.find_by(id:params[:id])
     end
-
-    private
        
 end

@@ -17,9 +17,9 @@
         <%= room_fields.label "Location" %>
         <%= room_fields.text_field :location %>
         <%= room_fields.label "Description" %>
-        <%= room_fields.text_field :description %>
+        <%= room_fields.text_area :description %>
         <%= room_fields.label "Hours" %>
-        <%= room_fields.text_field :hours %><br><br>
+        <%= room_fields.text_field :hours, placeholder: "9am to 5pm"%><br><br>
     <% end %>
     <%= f.label "Content:" %>
     <%= f.text_area :content, placeholder:"some review about escape room" %><br><br>
