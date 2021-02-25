@@ -2,7 +2,7 @@ class ReviewsController < ApplicationController
     before_action :find_review
     before_action :redirect_not_owner, only:[:edit, :update]
     def new 
-        #checks if coming from escape room route
+        #checks if coming from profile room route
         if params[:profile_id] && @profile = Profile.find_by_id(params[:profile_id])
             @review = @profile.reviews.build
         else
@@ -31,10 +31,12 @@ class ReviewsController < ApplicationController
         redirect_to profile_review_path(@profile, @review)
     end
 
-    def destory
+    def destroy
+        @review.destroy
         flash[:notice] = "Review deleted."
         redirect_to profile_path(current_user.profile)
     end
+
 
     private 
         def find_review 
@@ -53,7 +55,7 @@ class ReviewsController < ApplicationController
         end
 
         def redirect_not_owner
-            if @review.profile.id != current_user
+            if @review.profile.user != current_user
                 redirect_to profile_path(@review.profile), alert: "You can't edit this Review! Nice try."
             end
         end

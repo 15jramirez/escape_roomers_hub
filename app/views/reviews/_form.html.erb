@@ -1,4 +1,3 @@
-<h1> Edit </h1>
 <%= form_for ([@profile, @review]) do |f| %>
     <%= f.label "Title" %>
     <%= f.text_field :title %><br><br>
@@ -13,7 +12,7 @@
         <%= room_fields.label "Difficulty" %>
         <%= room_fields.text_field :difficulty%>
         <%= room_fields.label "Location" %>
-        <%= room_fields.text_field :location, placeholder: "online/ 1234 w. NY" %><br>
+        <%= room_fields.text_field :location, placeholder: "online/ 1234 NY" %><br>
         <%= room_fields.label "Hours" %>
         <%= room_fields.text_field :hours, placeholder: "9am to 5pm"%>
         <%= room_fields.label "Description" %>

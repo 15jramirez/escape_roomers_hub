@@ -6,6 +6,6 @@ class Review < ApplicationRecord
     validates :rating, presence:true
 
        def escape_room_attributes=(attr)
-        self.escape_room = EscapeRoom.find_or_create_by(title: attr[:title], location: attr[:location], difficulty: attr[:difficulty], hours: attr[:hours], description: attr[:description])
+        self.escape_room = EscapeRoom.find_or_create_by( title: attr[:title], location: attr[:location], difficulty: attr[:difficulty], hours: attr[:hours], description: attr[:description])
+       end
     end
-end
