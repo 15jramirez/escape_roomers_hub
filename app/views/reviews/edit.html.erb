@@ -1,5 +1,5 @@
 <h1> Edit </h1>
-<%= form_for ([@profile, @review]) do |f| %>
+<%= form_for ([@review.profile, @review]) do |f| %>
     <%= f.label "Title" %>
     <%= f.text_field :title %><br><br>
     <%= f.label "Rating:" %>

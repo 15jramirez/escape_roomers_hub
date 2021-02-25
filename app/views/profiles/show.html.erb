@@ -9,7 +9,7 @@
         <% else %>
         <ol>
             <% @profile.reviews.each do |review| %>
-                <li>Escape Room Visted:<%= link_to review.escape_room.title, escape_room_path(review.escape_room) %>
+                <li>Escape Room Visted:<%= link_to review.escape_room.title, escape_room_path(review.escape_room) %><br>
                 Review: <%= link_to review.title, profile_review_path(review) %></li>
                 <% end %>
         </ol>

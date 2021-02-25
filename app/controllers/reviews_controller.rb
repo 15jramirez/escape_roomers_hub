@@ -13,6 +13,7 @@ class ReviewsController < ApplicationController
         @profile = current_user.profile
         @review = @profile.reviews.build(review_params)
         if @review.valid?
+            @revew.profile = @profile
             @review.save
             redirect_to profile_review_path(@profile, @review)
         else 
@@ -21,9 +22,11 @@ class ReviewsController < ApplicationController
     end
 
     def show 
+
     end
 
     def edit 
+        binding.pry
     end
 
     def update 

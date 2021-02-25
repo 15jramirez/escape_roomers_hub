@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
 
   resources :profiles do
-    resources :reviews
+    resources :reviews, only:[:new, :create,:show, :edit, :update]
     #localhost/profile/1/review/new
   end
 
