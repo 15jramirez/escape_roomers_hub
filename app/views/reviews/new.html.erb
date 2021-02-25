@@ -3,11 +3,11 @@
 <%= render partial: 'shared/errors', locals:{object: @review} %>
 <%= form_for ([@profile, @review]) do |f| %>
     <%= f.label "Title" %>
-    <%= f.text_field :title %>
+    <%= f.text_field :title %><br><br>
     <%= f.label "Rating:" %>
     <%= f.select :rating, options_for_select([["Please select one", ""], 5, 4, 3, 2, 1]) %><br><br>
     <%= f.label "Escape Room:" %>
-    <%= f.collection_select :escape_room_id, EscapeRoom.all, :id, :title,:location, prompt:"Select or leave blank" %><br><br>
+    <%= f.collection_select :escape_room_id, EscapeRoom.all, :id, :title, prompt:"Select or leave blank" %><br><br>
     <p> Room not there? Create an Escape Room </p>
         <%= f.fields_for :escape_room, @review.build_escape_room do |room_fields| %>
         <%= room_fields.label "Title" %>

@@ -1,4 +1,7 @@
 <h1><%= @escaperoom.title%></h1>
+<p>Location: <%=@escaperoom.location %><p>
+<p>Difficulty: <%= @escaperoom.difficulty %><p>
+<p>Hours: <%=@escaperoom.hours %><p>
 
 <h2> Reviews </h2>
     <% @escaperoom.reviews.each do |review| %>

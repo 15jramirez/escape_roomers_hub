@@ -1,5 +1,6 @@
 class ReviewsController < ApplicationController
     before_action :find_review
+    before_action :redirect_not_owner, only:[:edit, :update]
     def new 
         #checks if coming from escape room route
         if params[:profile_id] && @profile = Profile.find_by_id(params[:profile_id])
@@ -18,8 +19,10 @@ class ReviewsController < ApplicationController
             render :new
         end
     end
+
     def show 
     end
+
     def edit 
     end
 
@@ -39,7 +42,7 @@ class ReviewsController < ApplicationController
         end
 
         def review_params
-            params.require(:review).permit( :content, :rating, :escape_room_id[], escape_room_attributes:[
+            params.require(:review).permit( :title, :rating, :content, :escape_room_id, escape_room_attributes:[
                 :title,
                 :location,
                 :difficulty,
@@ -49,9 +52,9 @@ class ReviewsController < ApplicationController
 
         end
 
-        # def redirect_not_owner
-        #     if @review.profile != current_user
-        #         redirect_to profile_path(current_user.profile), alert: "You can't edit this Review! Nice try."
-        #     end
-        # end
+        def redirect_not_owner
+            if @review.profile.id != current_user
+                redirect_to profile_path(@review.profile), alert: "You can't edit this Review! Nice try."
+            end
+        end
 end
