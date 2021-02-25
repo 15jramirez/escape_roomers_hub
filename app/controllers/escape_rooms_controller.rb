@@ -1,14 +1,12 @@
-class EscapeRooms < ApplicationController
+class EscapeRoomsController < ApplicationController
     def index 
-        @escape_rooms = EscapeRooms.all
+        @escape_rooms = EscapeRoom.all
     end
     
     def show 
-        @escaperoom = EscapeRooms.find_by(params[:id])
+        @escaperoom = EscapeRoom.find_by(params[:id])
     end
 
     private
-        def find_escape_room
-            @escaperoom = EscapeRooms.find_by(params[:id])
-        end
+       
 end

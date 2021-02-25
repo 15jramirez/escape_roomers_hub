@@ -2,9 +2,7 @@ class ReviewsController < ApplicationController
     before_action :find_review
     def new 
         #checks if coming from escape room route
-        if params[:escape_room_id] && @escape_room = EscapeRoom.find_by_id(params[:escape_room_id])
-        @review = @escape_room.reviews.build 
-        elsif params[:profile_id] && @profile = Profile.find_by_id(params[:profile_id])
+        if params[:profile_id] && @profile = Profile.find_by_id(params[:profile_id])
             @review = @profile.reviews.build
         else
           redirect_to login_path  alert: "You need to be logged in to create a review."
@@ -41,7 +39,7 @@ class ReviewsController < ApplicationController
         end
 
         def review_params
-            params.require(:review).permit( :content, :rating, :escape_room_id, escape_room_attributes:[
+            params.require(:review).permit( :content, :rating, :escape_room_id[], escape_room_attributes:[
                 :title,
                 :location,
                 :difficulty,
