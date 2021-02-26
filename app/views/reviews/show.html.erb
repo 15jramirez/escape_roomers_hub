@@ -1,4 +1,8 @@
-<%= link_to "Edit", edit_profile_review_path(@review.profile, @review) %>   <%= link_to("Delete Review", profile_review_path(@review), method: 'delete' )%>
+
+<%= link_to "EDIT", edit_profile_review_path(@review.profile, @review) %>
+<%= link_to "DELECT", profile_review_path(@review.profile, @review), method:"delete" %>
 <h1> Escape Room: <%= link_to @review.escape_room.title, escape_room_path(@review.escape_room) %> </h1>
 <h2> Created by:<%= link_to @review.profile.name, profile_path(@review.profile) %></h2>
+<p> Raiting: <%= @review.rating %></p>
 <p> <%= @review.content %> </p>
+
