@@ -1,8 +1,6 @@
-<h1> Here are all of the Escape Rooms </h1>
-<%= link_to "Online Rooms", online_path %>
+<h1>All online Escape Rooms</h1>
 <% @escape_rooms.each do |escape_room| %>
     <div>
       <h2><%= link_to escape_room.title, escape_room_path(escape_room) %></h2>
     </div>
   <% end %>
-

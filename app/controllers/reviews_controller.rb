@@ -3,12 +3,15 @@ class ReviewsController < ApplicationController
     before_action :redirect_not_owner, only:[:edit, :update]
     def new 
         #checks if coming from profile room route
-        if params[:profile_id] == current_user.profile.id && @profile = Profile.find_by_id(params[:profile_id])
+        if params[:profile_id] && @profile = Profile.find_by_id(params[:profile_id])
             @review = @profile.reviews.build
+        elsif params[:escape_room_id] && @escaperoom = EscapeRoom.find_by_id(params[:escape_room_id])
+            @review = @escaperoom.reviews.build
         else
             flash[:notice] = "Let's make a review on your profile!"
           redirect_to profile_path(params[:profile_id])
         end
+
     end
     def create 
         @profile = current_user.profile
@@ -22,7 +25,6 @@ class ReviewsController < ApplicationController
     end
 
     def show 
-        binding.pry
     end
 
     def edit 

@@ -1,5 +1,8 @@
 class EscapeRoomsController < ApplicationController
-    def index 
+    def online
+        @escape_rooms = EscapeRoom.online
+    end
+    def index   
         @escape_rooms = EscapeRoom.all
     end
     

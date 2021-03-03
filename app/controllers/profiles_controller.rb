@@ -21,7 +21,6 @@ before_action :find_profile, only:[:show,:edit,:update]
             render :edit
         end
     end
-
     private
         def find_profile
             @profile = Profile.find(params[:id])

@@ -2,8 +2,8 @@
 <p>Location: <%=@escaperoom.location %><p>
 <p>Difficulty: <%= @escaperoom.difficulty %><p>
 <p>Hours: <%=@escaperoom.hours %><p>
-<p>Description: <%=@escaperoom.description %>
-
+<p>Description: <%=@escaperoom.description %><br>
+<%= link_to "New Review", new_escape_room_review_path(@escaperoom.id) %>
 <h2> Reviews </h2>
     <% @escaperoom.reviews.each do |review| %>
        <h3> <%= link_to review.profile.name, profile_path(review.profile) %>'s review:</h3>
