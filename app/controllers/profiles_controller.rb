@@ -3,6 +3,7 @@ before_action :authentication_required
 before_action :find_profile, only:[:show,:edit,:update]
 
     def show 
+      
     end
 
     def edit
@@ -14,6 +15,8 @@ before_action :find_profile, only:[:show,:edit,:update]
     end
 
     def update
+        @profile.avatar.attach(params[:avatar])
+     
         if valid?
             current_user.profile.update(profile_params)
             redirect_to profile_path(@profile)
@@ -31,6 +34,6 @@ before_action :find_profile, only:[:show,:edit,:update]
         end
 
         def profile_params
-            params.require(:profile).permit(:bio, :user_id)
+            params.require(:profile).permit(:bio, :user_id, :avatar)
         end
     end

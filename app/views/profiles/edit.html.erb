@@ -3,6 +3,8 @@
 <%= render partial: '/shared/errors', locals: {object: @profile} %>
 
 <%= form_for @profile do |f| %>
+    <%=f.label "Profile Photo" %>
+    <%= f.file_field :avatar %><br>
     <%= f.label "About Me:" %><br>
     <%= f.text_area :bio %><br>
     <%= f.submit "Update Profile" %>

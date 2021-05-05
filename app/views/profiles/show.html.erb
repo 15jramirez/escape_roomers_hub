@@ -1,5 +1,8 @@
 <h1> Profile Name: <%= @profile.name %> </h1>
 <p> <%= link_to "Edit Profile", edit_profile_path(@profile) %> <%= link_to " New Review", new_profile_review_path(current_user.profile) %> <%= link_to "Log out", logout_path, method: "delete" %></p>
+<% if @profile.avatar.attached? %>
+        <image src="<%= (url_for(@profile.avatar)) %>" >
+    <% end %> 
 <h2> About Me: <h2>
 <p> <%= @profile.bio %><P>
 

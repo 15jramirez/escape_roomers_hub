@@ -13,3 +13,27 @@
  *= require_tree .
  *= require_self
  */
+
+body {
+    background-color: #a7dae9;
+}
+h1 {
+    text-align: center;
+}
+
+/* links customizations */
+a {
+    font-family: Arial;
+}
+a:link {
+    color:purple;
+}
+
+a:hover{
+    color:hotpink;
+}
+
+a:visited{
+    color: silver;
+}
+
