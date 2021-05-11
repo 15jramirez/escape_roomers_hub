@@ -15,9 +15,13 @@
  */
 
 body {
-    background-color: #a7dae9;
+    background-color: #5b6467;
+}
+main {
+    background-image: linear-gradient(315deg, #5b6467 0%, #8b939a 74%);
 }
 h1 {
+    background-image: url();
     text-align: center;
 }
 
